@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Westcliff &amp; Co. — A Newport Beach Marketing Studio | South Orange County</title>
+<meta name="description" content="Westcliff & Co. is a Newport Beach marketing studio helping South Orange County's boutiques, clinics, salons and restaurants get found on Google, earn 5-star reviews, and win more local customers. Get your free Google Visibility Scorecard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --emerald:#16323F; --emerald-deep:#0F2530; --emerald-700:#1E4A57;
+    --ivory:#F2ECDF; --paper:#FBF7EE; --brass:#C2A35A; --brass-light:#E0C98C;
+    --ink:#16242A; --muted:#5A6671; --line:rgba(22,42,52,.14); --line-light:rgba(242,236,223,.18);
+    --display:"Fraunces", Georgia, serif; --body:"Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:1.0625rem;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem;}
+  .eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--brass);}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--brass);}
+  h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;letter-spacing:-.01em;}
+  h2{font-size:clamp(1.9rem,3.6vw,2.9rem);}
+  .section{padding:5.5rem 0;}
+  .em{font-style:italic;color:var(--brass);}
+  .btn{display:inline-flex;align-items:center;gap:.55rem;font-weight:600;font-size:.98rem;padding:.9rem 1.6rem;border-radius:3px;border:1px solid var(--emerald);background:var(--brass);color:var(--emerald-deep);cursor:pointer;transition:transform .15s ease, background .2s ease;}
+  .btn:hover{transform:translateY(-2px);background:var(--brass-light);}
+  .btn.ghost{background:transparent;color:var(--emerald);}
+  .btn.ghost:hover{background:rgba(22,50,63,.06);}
+  .btn.on-dark{border-color:var(--brass);}
+
+  /* HEADER */
+  header{position:sticky;top:0;z-index:50;background:rgba(251,247,238,.88);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px;}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-size:1.35rem;letter-spacing:.02em;}
+  .brand .mono{width:34px;height:34px;border-radius:50%;border:1px solid var(--brass);display:grid;place-items:center;font-size:.9rem;font-style:italic;color:var(--brass);}
+  .brand .amp{color:var(--brass);}
+  .nav-links{display:flex;align-items:center;gap:2rem;}
+  .nav-links a{font-size:.95rem;color:var(--muted);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav .btn{padding:.7rem 1.3rem;}
+  @media(max-width:860px){.nav-links a:not(.btn){display:none;}}
+
+  /* HERO */
+  .hero{background:var(--emerald);color:var(--ivory);position:relative;overflow:hidden;}
+  .hero .wrap{padding-top:6rem;padding-bottom:6rem;position:relative;z-index:2;}
+  .hero .eyebrow{color:var(--brass-light);}
+  .hero .eyebrow::before{background:var(--brass-light);}
+  .hero h1{font-size:clamp(2.7rem,6.4vw,5rem);margin:1.4rem 0 1.4rem;max-width:14ch;}
+  .hero p.lead{max-width:34rem;color:rgba(242,236,223,.82);font-size:1.15rem;}
+  .hero .cta-row{display:flex;flex-wrap:wrap;gap:1rem;margin:2.2rem 0 1.6rem;}
+  .hero .offer-stack{font-size:.95rem;color:var(--brass-light);margin:0 0 1rem;max-width:38rem;}
+  .hero .offer-stack b{color:var(--ivory);font-weight:600;}
+  .hero .serving{font-size:.9rem;color:rgba(242,236,223,.55);}
+  .ghost-amp{position:absolute;right:-4rem;bottom:-8rem;font-family:var(--display);font-style:italic;font-size:34rem;line-height:1;color:rgba(242,236,223,.04);z-index:1;pointer-events:none;}
+
+  /* MARQUEE */
+  .worksWith{background:var(--ivory);border-bottom:1px solid var(--line);}
+  .worksWith .wrap{display:flex;align-items:center;gap:2rem;padding:1.4rem 1.5rem;flex-wrap:wrap;}
+  .worksWith .label{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap;}
+  .worksWith ul{list-style:none;display:flex;flex-wrap:wrap;gap:1.4rem;font-family:var(--display);font-size:1.05rem;color:var(--emerald);}
+  .worksWith li{position:relative;padding-right:1.4rem;}
+  .worksWith li::after{content:"·";position:absolute;right:0;color:var(--brass);}
+  .worksWith li:last-child{padding-right:0;}.worksWith li:last-child::after{display:none;}
+
+  /* SCORECARD */
+  .scorecard{background:var(--emerald-deep);color:var(--ivory);}
+  .sc-shell{background:var(--emerald);border:1px solid var(--line-light);border-radius:8px;padding:2.6rem;margin-top:2.4rem;box-shadow:0 30px 60px -30px rgba(0,0,0,.5);}
+  .sc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:1.6rem;}
+  .sc-head h2{color:var(--ivory);font-size:clamp(1.6rem,3vw,2.2rem);}
+  .sc-progress{height:5px;background:rgba(242,236,223,.14);border-radius:99px;overflow:hidden;margin-bottom:2rem;}
+  .sc-progress span{display:block;height:100%;width:0;background:var(--brass);transition:width .4s ease;}
+  .sc-q h3{color:var(--ivory);font-size:1.5rem;margin-bottom:1.4rem;}
+  .sc-options{display:grid;gap:.7rem;}
+  .sc-opt{text-align:left;width:100%;padding:1rem 1.2rem;border-radius:5px;border:1px solid var(--line-light);background:rgba(242,236,223,.03);color:var(--ivory);font-size:1rem;cursor:pointer;transition:all .15s ease;font-family:var(--body);}
+  .sc-opt:hover{border-color:var(--brass);background:rgba(194,163,90,.12);transform:translateX(4px);}
+  .sc-meta{margin-top:1.4rem;font-size:.85rem;color:rgba(242,236,223,.5);}
+  .sc-back{background:none;border:none;color:var(--brass-light);cursor:pointer;font-size:.9rem;font-family:var(--body);padding:0;}
+  /* result */
+  .sc-result{display:none;text-align:center;}
+  .sc-result.show{display:block;animation:fade .5s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  .gauge{width:200px;height:200px;margin:0 auto 1.2rem;position:relative;}
+  .gauge svg{transform:rotate(-90deg);}
+  .gauge .track{fill:none;stroke:rgba(242,236,223,.12);stroke-width:14;}
+  .gauge .fill{fill:none;stroke:var(--brass);stroke-width:14;stroke-linecap:round;transition:stroke-dashoffset 1.4s cubic-bezier(.2,.8,.2,1);}
+  .gauge .num{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:3.2rem;color:var(--ivory);}
+  .sc-verdict{font-family:var(--display);font-size:1.6rem;color:var(--ivory);margin-bottom:.4rem;}
+  .sc-sub{color:rgba(242,236,223,.7);max-width:34rem;margin:0 auto 1.6rem;}
+  .sc-wins{display:grid;gap:.6rem;max-width:30rem;margin:0 auto 1.8rem;text-align:left;}
+  .sc-win{display:flex;gap:.7rem;align-items:flex-start;font-size:.98rem;color:rgba(242,236,223,.9);}
+  .sc-win b{color:var(--brass-light);}
+  .sc-capture{display:grid;gap:.8rem;max-width:26rem;margin:0 auto;}
+  .sc-capture input{padding:.9rem 1rem;border-radius:5px;border:1px solid var(--line-light);background:rgba(242,236,223,.05);color:var(--ivory);font-family:var(--body);font-size:1rem;}
+  .sc-capture input::placeholder{color:rgba(242,236,223,.45);}
+  .sc-note{font-size:.8rem;color:rgba(242,236,223,.5);margin-top:.4rem;}
+  .sc-done{display:none;text-align:center;padding:1rem 0;}
+  .sc-done.show{display:block;animation:fade .4s ease;}
+
+  /* SERVICES */
+  .services .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+  .svc{border:1px solid var(--line);border-radius:4px;padding:1.9rem;background:#fff;transition:transform .2s ease, box-shadow .2s ease;}
+  .svc:hover{transform:translateY(-4px);box-shadow:0 20px 40px -28px rgba(22,50,63,.45);}
+  .svc .n{font-family:var(--display);font-style:italic;color:var(--brass);font-size:1.4rem;}
+  .svc h3{font-size:1.25rem;margin:.5rem 0 .5rem;}
+  .svc p{color:var(--muted);font-size:.97rem;}
+  @media(max-width:860px){.services .grid{grid-template-columns:1fr;}}
+
+  /* WHY */
+  .why{background:var(--emerald);color:var(--ivory);}
+  .why h2{color:var(--ivory);}
+  .why .eyebrow{color:var(--brass-light);}.why .eyebrow::before{background:var(--brass-light);}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:3rem;}
+  .why-grid h3{color:var(--ivory);font-size:1.3rem;margin-bottom:.55rem;}
+  .why-grid p{color:rgba(242,236,223,.72);font-size:.98rem;}
+  @media(max-width:860px){.why-grid{grid-template-columns:1fr;gap:2rem;}}
+
+  /* STEPS */
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:3rem;counter-reset:step;}
+  .step{position:relative;padding-top:2.6rem;}
+  .step::before{counter-increment:step;content:"0" counter(step);position:absolute;top:0;left:0;font-family:var(--display);font-style:italic;font-size:2.1rem;color:var(--brass);}
+  .step h3{font-size:1.3rem;margin-bottom:.55rem;}
+  .step p{color:var(--muted);font-size:.98rem;}
+  @media(max-width:860px){.steps-grid{grid-template-columns:1fr;gap:2rem;}}
+
+  /* PRICING */
+  .pricing{background:var(--paper);}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem;}
+  .plan{border:1px solid var(--line);border-radius:3px;padding:2.2rem 1.9rem;background:#fff;display:flex;flex-direction:column;}
+  .plan.feature{background:var(--emerald);color:var(--ivory);border-color:var(--emerald);position:relative;}
+  .plan .tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:700;}
+  .plan.feature .tag{color:var(--brass-light);}
+  .plan h3{font-size:1.4rem;margin:.5rem 0 .3rem;}
+  .plan .price{font-family:var(--display);font-size:2rem;margin-bottom:1.2rem;}
+  .plan ul{list-style:none;display:grid;gap:.6rem;margin-bottom:1.6rem;}
+  .plan li{font-size:.95rem;color:var(--muted);padding-left:1.4rem;position:relative;}
+  .plan.feature li{color:rgba(242,236,223,.82);}
+  .plan li::before{content:"✓";position:absolute;left:0;color:var(--brass);}
+  .plan .btn{margin-top:auto;justify-content:center;}
+  .price-note{text-align:center;margin-top:1.6rem;color:var(--muted);font-size:.95rem;}
+  @media(max-width:860px){.price-grid{grid-template-columns:1fr;}}
+
+  /* TESTIMONIAL */
+  .quote{background:var(--emerald-deep);color:var(--ivory);text-align:center;}
+  .quote .mark{font-family:var(--display);font-size:4rem;color:var(--brass);line-height:.5;}
+  .quote blockquote{font-family:var(--display);font-size:clamp(1.4rem,2.6vw,2rem);max-width:24ch;margin:1rem auto 1.4rem;line-height:1.3;}
+  .quote cite{font-style:normal;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,236,223,.6);}
+
+  /* ABOUT */
+  .about p{color:var(--muted);max-width:42rem;margin-top:1rem;font-size:1.05rem;}
+
+  /* FAQ */
+  .faq details{border-top:1px solid var(--line);padding:1.3rem 0;}
+  .faq details:last-child{border-bottom:1px solid var(--line);}
+  .faq summary{font-family:var(--display);font-size:1.2rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";color:var(--brass);font-size:1.5rem;transition:transform .2s ease;}
+  .faq details[open] summary::after{transform:rotate(45deg);}
+  .faq p{color:var(--muted);margin-top:.8rem;max-width:52rem;}
+
+  /* CONTACT */
+  .contact{background:var(--emerald);color:var(--ivory);}
+  .contact .eyebrow{color:var(--brass-light);}.contact .eyebrow::before{background:var(--brass-light);}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;margin-top:2.4rem;align-items:start;}
+  .contact h2{color:var(--ivory);}
+  .contact .intro{color:rgba(242,236,223,.78);margin:1rem 0 1.8rem;}
+  .contact .ci{margin-bottom:1rem;}
+  .contact .ci span{display:block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-light);margin-bottom:.2rem;}
+  .contact .ci a{font-family:var(--display);font-size:1.2rem;}
+  form.lead{display:grid;gap:.9rem;background:var(--emerald-deep);padding:2rem;border-radius:8px;border:1px solid var(--line-light);}
+  form.lead label{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,236,223,.65);}
+  form.lead input,form.lead textarea{width:100%;padding:.85rem 1rem;border-radius:5px;border:1px solid var(--line-light);background:rgba(242,236,223,.05);color:var(--ivory);font-family:var(--body);font-size:1rem;margin-top:.25rem;}
+  form.lead input::placeholder,form.lead textarea::placeholder{color:rgba(242,236,223,.42);}
+  form.lead textarea{min-height:96px;resize:vertical;}
+  form.lead .btn{justify-content:center;margin-top:.4rem;}
+  .form-success{display:none;background:var(--emerald-deep);border:1px solid var(--brass);border-radius:8px;padding:2rem;text-align:center;}
+  .form-success.show{display:block;animation:fade .4s ease;}
+  .form-success h3{color:var(--ivory);font-size:1.5rem;margin-bottom:.6rem;}
+  .form-success p{color:rgba(242,236,223,.78);margin-bottom:1.2rem;}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+
+  /* FOOTER */
+  footer{background:var(--emerald-deep);color:rgba(242,236,223,.7);padding:3rem 0 2rem;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;}
+  footer .brand{color:var(--ivory);margin-bottom:.8rem;}
+  footer h4{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-light);margin-bottom:.6rem;}
+  footer a:hover{color:var(--ivory);}
+  .foot-bottom{border-top:1px solid var(--line-light);margin-top:2.2rem;padding-top:1.4rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.85rem;}
+  @media(max-width:860px){.foot-grid{grid-template-columns:1fr;gap:1.6rem;}}
+</style>
+</head>
+<body>
+<a id="top"></a>
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="mono">C</span>Westcliff <span class="amp">&amp;</span> Co.</a>
+    <nav class="nav-links">
+      <a href="#scorecard">Free scorecard</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why us</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact" class="btn">Book a free audit</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ghost-amp">&amp;</div>
+  <div class="wrap">
+    <span class="eyebrow">Free · 60-second Google Visibility Scorecard</span>
+    <h1>See why customers find your competitors on Google <span class="em">first.</span></h1>
+    <p class="lead">Take the free 60-second scorecard and get your Local Visibility Score — plus the three things quietly costing you customers right now. Built for South Orange County's boutiques, spas, clinics and restaurants.</p>
+    <div class="cta-row">
+      <a href="#scorecard" class="btn on-dark">Get my free scorecard →</a>
+      <a href="#services" class="btn ghost on-dark" style="color:var(--ivory);border-color:var(--line-light);">See our services</a>
+    </div>
+    <p class="offer-stack"><b>Free:</b> your instant score + a personalized audit + our Local Visibility Checklist. No sales call unless you want one.</p>
+    <p class="serving">Serving Newport Beach and South Orange County.</p>
+  </div>
+</section>
+
+<!-- WORKS WITH -->
+<div class="worksWith">
+  <div class="wrap">
+    <span class="label">We work with</span>
+    <ul><li>Boutiques</li><li>Salons &amp; spas</li><li>Aesthetics clinics</li><li>Galleries</li><li>Restaurants</li><li>Professional practices</li></ul>
+  </div>
+</div>
+
+<!-- INTERACTIVE SCORECARD -->
+<section class="section scorecard" id="scorecard">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--brass-light);">Free · 60 seconds · instant result</span>
+    <h2 style="color:var(--ivory);margin-top:1rem;max-width:20ch;">How findable is your business on Google?</h2>
+    <p style="color:rgba(242,236,223,.72);max-width:40rem;margin-top:.8rem;">Answer five quick questions and get an instant Local Visibility Score — plus the three things costing you customers right now.</p>
+
+    <div class="sc-shell">
+      <!-- QUIZ -->
+      <div id="scQuiz">
+        <div class="sc-head">
+          <h2 id="scStepLabel">Question 1 of 5</h2>
+          <button class="sc-back" id="scBack" style="display:none;">← Back</button>
+        </div>
+        <div class="sc-progress"><span id="scBar"></span></div>
+        <div class="sc-q" id="scQ"></div>
+        <p class="sc-meta">No account needed. Your score appears the moment you finish.</p>
+      </div>
+
+      <!-- RESULT -->
+      <div class="sc-result" id="scResult">
+        <div class="gauge">
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <circle class="track" cx="100" cy="100" r="80"></circle>
+            <circle class="fill" id="scArc" cx="100" cy="100" r="80" stroke-dasharray="502.65" stroke-dashoffset="502.65"></circle>
+          </svg>
+          <div class="num" id="scNum">0</div>
+        </div>
+        <div class="sc-verdict" id="scVerdict"></div>
+        <p class="sc-sub" id="scSub"></p>
+        <div class="sc-wins" id="scWins"></div>
+
+        <form class="sc-capture" name="scorecard" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="scForm">
+          <input type="hidden" name="form-name" value="scorecard">
+          <input type="hidden" name="visibility-score" id="scScoreField">
+          <p class="hidden" style="display:none;"><label>Don't fill: <input name="bot-field"></label></p>
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="text" name="business" placeholder="Business name" required>
+          <input type="email" name="email" placeholder="Email — where to send your full report" required>
+          <button class="btn" type="submit" style="justify-content:center;">Email me the full breakdown →</button>
+          <p class="sc-note">We'll send your full report + a free audit with three quick wins. No spam, ever.</p>
+        </form>
+      </div>
+
+      <!-- DONE -->
+      <div class="sc-done" id="scDone">
+        <div class="gauge" style="width:120px;height:120px;margin-bottom:1rem;">
+          <svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="none" stroke="var(--brass)" stroke-width="4"></circle><path d="M40 62 l14 14 l28 -30" fill="none" stroke="var(--brass)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <div class="sc-verdict">Your report is on its way.</div>
+        <p class="sc-sub">Check your inbox in a minute or two (peek in spam the first time). Want to talk it through sooner? <a href="#contact" style="color:var(--brass-light);text-decoration:underline;">Book your free audit call.</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="wrap">
+    <span class="eyebrow">What we do</span>
+    <h2 style="margin-top:1rem;max-width:20ch;">Everything a local business needs to be the first name in the neighborhood.</h2>
+    <div class="grid">
+      <div class="svc"><div class="n">01</div><h3>Google Business Profile</h3><p>Own the map. We optimize and manage your profile so you're the first name locals see — and call.</p></div>
+      <div class="svc"><div class="n">02</div><h3>Local SEO</h3><p>Rank for "near me." We get your business showing up across Newport Beach and South Orange County search.</p></div>
+      <div class="svc"><div class="n">03</div><h3>Reviews &amp; reputation</h3><p>Turn happy clients into five-star proof that wins the next booking.</p></div>
+      <div class="svc"><div class="n">04</div><h3>Websites &amp; landing pages</h3><p>A site as refined as your brand — fast, beautiful, and built to convert.</p></div>
+      <div class="svc"><div class="n">05</div><h3>Social media</h3><p>An Instagram and Facebook presence worthy of the neighborhood.</p></div>
+      <div class="svc"><div class="n">06</div><h3>Paid advertising</h3><p>Google and Meta campaigns that bring the right customers through your door.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section why" id="why">
+  <div class="wrap">
+    <span class="eyebrow">Why Westcliff &amp; Co.</span>
+    <h2 style="margin-top:1rem;">A studio, not a factory.</h2>
+    <div class="why-grid">
+      <div><h3>Boutique by design</h3><p>We take a handful of local clients at a time. You get a partner who knows your business — not a ticket number.</p></div>
+      <div><h3>Local to the core</h3><p>We know Newport Beach and how South Orange County searches. Your marketing speaks to the people actually walking past your door.</p></div>
+      <div><h3>Clear, never cluttered</h3><p>Plain-English reporting and month-to-month terms. You always know what you're paying for — and what it's earning.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section">
+  <div class="wrap">
+    <span class="eyebrow">How it works</span>
+    <h2 style="margin-top:1rem;">Three steps to a fuller calendar.</h2>
+    <div class="steps-grid">
+      <div class="step"><h3>The audit</h3><p>We review your online presence and show you exactly where customers are slipping away. Free, no strings.</p></div>
+      <div class="step"><h3>Your plan</h3><p>A focused strategy built around your goals, your neighborhood, and your budget.</p></div>
+      <div class="step"><h3>We run it</h3><p>You look after your business. We bring the customers — and report on every result.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+  <div class="wrap">
+    <span class="eyebrow">Plans</span>
+    <h2 style="margin-top:1rem;">Simple monthly plans. No long contracts.</h2>
+    <div class="price-grid">
+      <div class="plan"><span class="tag">Starter</span><h3>Get found</h3><div class="price">$750<span style="font-size:1rem;color:var(--muted);">/mo</span></div><ul><li>Google Business Profile management</li><li>Local SEO essentials</li><li>Review monitoring</li><li>Monthly performance report</li></ul><a href="#contact" class="btn ghost">Start here</a></div>
+      <div class="plan feature"><span class="tag">Most popular · Growth</span><h3>Grow steadily</h3><div class="price">$1,800<span style="font-size:1rem;color:rgba(242,236,223,.6);">/mo</span></div><ul><li>Everything in Starter</li><li>Social media management (1 platform)</li><li>Light ad campaign management</li><li>Biweekly reporting &amp; strategy calls</li></ul><a href="#contact" class="btn on-dark">Choose Growth</a></div>
+      <div class="plan"><span class="tag">Concierge</span><h3>Full service</h3><div class="price">$3,800<span style="font-size:1rem;color:var(--muted);">/mo</span></div><ul><li>SEO, social &amp; paid ads, fully managed</li><li>Content &amp; landing pages</li><li>Dedicated strategist &amp; priority support</li><li>Detailed reporting on every channel</li></ul><a href="#contact" class="btn ghost">Go Concierge</a></div>
+    </div>
+    <p class="price-note"><strong>Also available:</strong> website builds from $2,500 · one-time Google Profile setup $450 · marketing audit — always free.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="section quote">
+  <div class="wrap">
+    <div class="mark">&ldquo;</div>
+    <blockquote>Within two months our phone was ringing with people who'd found us on Google for the first time. It paid for itself almost immediately.</blockquote>
+    <cite>— Client name, Business, Newport Beach</cite>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="wrap">
+    <span class="eyebrow">About</span>
+    <h2 style="margin-top:1rem;max-width:22ch;">Built for the businesses that give Newport Beach its character.</h2>
+    <p>Westcliff &amp; Co. is a Newport Beach marketing studio for South Orange County's independent businesses — the boutiques, clinics, salons and restaurants that make the neighborhood worth walking through.</p>
+    <p>We believe they deserve marketing as considered as everything else they do: no enterprise pricing, no jargon, no agency runaround. Just a small, attentive team making sure the right customers find you — and come back.</p>
+    <p>We work with a limited number of clients at a time so every one gets real attention. If that sounds like the partner you've been looking for, the first conversation is free.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Questions</span>
+    <h2 style="margin:1rem 0 2rem;">Good things to know.</h2>
+    <details><summary>What does it cost?</summary><p>Plans start at $750/month, with custom options based on your goals. Your first audit is free, and you'll see a clear plan before you commit to anything.</p></details>
+    <details><summary>Do I have to sign a long contract?</summary><p>No. We work month to month and earn your business every month. You can adjust or pause whenever you need to.</p></details>
+    <details><summary>How soon will I see results?</summary><p>Reviews and Google Profile improvements often show within weeks. Local SEO builds steadily over a couple of months, while paid ads can drive enquiries almost right away.</p></details>
+    <details><summary>Do you only work with Newport Beach businesses?</summary><p>Newport Beach is home base, but we work with businesses across South Orange County. Everything we do is remote-friendly, so location is never a barrier.</p></details>
+    <details><summary>Do I need a new website to start?</summary><p>Not at all. Many clients start with their Google Business Profile and reviews — the fastest path to new customers — and add a website later if they want one.</p></details>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Get started</span>
+    <div class="contact-grid">
+      <div>
+        <h2>Let's bring more customers through your door.</h2>
+        <p class="intro">Tell us a little about your business and we'll send back a free audit with three things you can improve right away.</p>
+        <div class="ci"><span>Email</span><a href="mailto:hello@westcliffandco.com">hello@westcliffandco.com</a></div>
+        <div class="ci"><span>Phone</span><a href="tel:+19490000000">(949) 000-0000</a></div>
+      </div>
+      <div>
+        <form class="lead" name="audit" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="auditForm">
+          <input type="hidden" name="form-name" value="audit">
+          <p style="display:none;"><label>Don't fill: <input name="bot-field"></label></p>
+          <div><label for="name">Your name</label><input id="name" name="name" type="text" placeholder="Jane Smith" required></div>
+          <div><label for="business">Business name</label><input id="business" name="business" type="text" placeholder="Your business" required></div>
+          <div><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@business.com" required></div>
+          <div><label for="message">What would you like to improve?</label><textarea id="message" name="message" placeholder="e.g. more Google reviews, showing up for 'near me' searches…"></textarea></div>
+          <button class="btn" type="submit">Send &amp; get my free audit →</button>
+        </form>
+        <div class="form-success" id="auditSuccess">
+          <h3>Thank you — we're on it.</h3>
+          <p>Your request landed with us. We'll reply within one business day with your free audit and three quick wins.</p>
+          <a class="btn" id="checklistDownload" download="Westcliff-Local-Visibility-Checklist.txt">Meanwhile — grab the free checklist ↓</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="brand"><span class="mono">C</span>Westcliff <span class="amp">&amp;</span> Co.</a>
+        <p style="max-width:26rem;font-size:.95rem;">A Newport Beach marketing studio for South Orange County's finest local businesses.</p>
+      </div>
+      <div><h4>Areas we serve</h4><p style="font-size:.92rem;line-height:1.9;">Newport Beach · Laguna Beach<br>Corona del Mar · Dana Point<br>Huntington Beach · South OC</p></div>
+      <div><h4>Follow</h4><p style="font-size:.92rem;line-height:1.9;"><a href="#">Instagram</a><br><a href="#">LinkedIn</a><br><a href="#">Facebook</a></p></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Westcliff &amp; Co. · Newport Beach, CA</span><a href="#contact">Book a free audit</a></div>
+  </div>
+</footer>
+
+<script>
+/* ---------- INTERACTIVE SCORECARD ---------- */
+(function(){
+  var questions=[
+    {q:"Have you claimed and verified your Google Business Profile?",opts:[["Yes, it's verified and I manage it",20],["It exists but I rarely touch it",10],["Not sure / someone set it up",5],["No, I don't have one",0]]},
+    {q:"How many Google reviews do you have?",opts:[["50+ and growing",20],["A handful (under 20)",10],["Just one or two",4],["None yet",0]]},
+    {q:"When someone searches your service + your city, do you appear in the map results?",opts:[["Yes, usually near the top",20],["Sometimes, further down",10],["Rarely",4],["No idea — never checked",2]]},
+    {q:"How often do you post updates, photos or offers to Google?",opts:[["Weekly-ish",20],["Now and then",10],["Almost never",3],["Never",0]]},
+    {q:"Does your website clearly show your services, area and a way to contact you?",opts:[["Yes, and it's built to convert",20],["I have a site but it's dated",10],["Just a basic page / social only",4],["No website",0]]}
+  ];
+  var i=0,score=0;
+  var qEl=document.getElementById('scQ'),bar=document.getElementById('scBar'),label=document.getElementById('scStepLabel'),back=document.getElementById('scBack');
+  var quiz=document.getElementById('scQuiz'),result=document.getElementById('scResult');
+  var history=[];
+  function render(){
+    label.textContent="Question "+(i+1)+" of "+questions.length;
+    bar.style.width=((i)/questions.length*100)+"%";
+    back.style.display=i>0?"inline":"none";
+    var Q=questions[i];
+    var html='<h3>'+Q.q+'</h3><div class="sc-options">';
+    Q.opts.forEach(function(o,idx){html+='<button class="sc-opt" data-v="'+o[1]+'">'+o[0]+'</button>';});
+    html+='</div>';
+    qEl.innerHTML=html;
+    qEl.querySelectorAll('.sc-opt').forEach(function(b){
+      b.addEventListener('click',function(){
+        history.push(parseInt(b.getAttribute('data-v'),10));
+        i++;
+        if(i>=questions.length){finish();}else{render();}
+      });
+    });
+  }
+  back.addEventListener('click',function(){ if(i>0){i--;history.pop();render();}});
+  function finish(){
+    score=history.reduce(function(a,b){return a+b;},0); // max 100
+    bar.style.width="100%";
+    quiz.style.display="none";
+    result.classList.add('show');
+    document.getElementById('scScoreField').value=score;
+    // gauge
+    var circ=502.65, arc=document.getElementById('scArc');
+    setTimeout(function(){arc.style.strokeDashoffset=(circ-(circ*score/100)).toFixed(1);},120);
+    // count up
+    var num=document.getElementById('scNum'),cur=0;
+    var t=setInterval(function(){cur+=2;if(cur>=score){cur=score;clearInterval(t);}num.textContent=cur;},28);
+    // verdict
+    var v=document.getElementById('scVerdict'),s=document.getElementById('scSub');
+    var wins=document.getElementById('scWins');
+    var verdict,sub,tips;
+    if(score>=75){verdict="Strong — but there's an edge to claim.";sub="You're ahead of most local businesses. A few refinements will help you hold the top spot and convert more of the people already finding you.";tips=[["Lock in the lead","Post to Google weekly so competitors can't catch up."],["Turn views into calls","Add booking links and offers to your profile."],["Compound your reviews","A steady review flow keeps you first in the map."]];}
+    else if(score>=45){verdict="Getting there — real customers are slipping by.";sub="You've got a foundation, but gaps are costing you calls every week. The good news: these are quick to fix.";tips=[["Fill the profile","Complete every field and add fresh photos."],["Build reviews fast","A simple ask-after-service system doubles review counts."],["Show up for 'near me'","Local SEO basics get you into the map pack."]];}
+    else{verdict="Big opportunity — you're nearly invisible on Google.";sub="Right now, customers searching for what you offer probably aren't finding you. That's fixable — and it's the fastest ROI in local marketing.";tips=[["Claim the map","Set up and verify your Google Business Profile."],["Get your first reviews","Even 10 reviews dramatically boosts trust and ranking."],["Get found locally","Local SEO puts you in front of nearby searchers."]];}
+    v.textContent=verdict;s.textContent=sub;
+    wins.innerHTML=tips.map(function(t){return '<div class="sc-win">→ <span><b>'+t[0]+'.</b> '+t[1]+'</span></div>';}).join('');
+  }
+  render();
+
+  // scorecard form success (Netlify AJAX)
+  var scForm=document.getElementById('scForm');
+  scForm&&scForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var data=new FormData(scForm);
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()})
+      .then(function(){document.getElementById('scResult').classList.remove('show');document.getElementById('scResult').style.display='none';document.getElementById('scDone').classList.add('show');})
+      .catch(function(){document.getElementById('scDone').classList.add('show');document.getElementById('scResult').style.display='none';});
+  });
+})();
+
+/* ---------- CONTACT FORM (Netlify AJAX) + instant checklist ---------- */
+(function(){
+  var form=document.getElementById('auditForm');
+  if(!form)return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var data=new FormData(form);
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()})
+      .then(show).catch(show);
+  });
+  function show(){
+    form.style.display='none';
+    document.getElementById('auditSuccess').classList.add('show');
+    buildChecklist();
+  }
+  function buildChecklist(){
+    var text=[
+"WESTCLIFF & CO. — LOCAL VISIBILITY CHECKLIST",
+"Get found on Google in South Orange County",
+"====================================================",
+"",
+"1. GOOGLE BUSINESS PROFILE",
+"   [ ] Claim & verify your profile",
+"   [ ] Correct name, address (or service area), phone, hours",
+"   [ ] Pick the right primary + secondary categories",
+"   [ ] Add 8-10 real, on-brand photos",
+"   [ ] List every service with a short description",
+"",
+"2. REVIEWS",
+"   [ ] Ask every happy customer within 2 hours of service",
+"   [ ] Reply to every review — gracious and brief",
+"   [ ] Aim for a steady trickle, not one big burst",
+"",
+"3. LOCAL SEO",
+"   [ ] Your city + service in your homepage title & headings",
+"   [ ] A page per core service",
+"   [ ] Consistent name/address/phone everywhere online",
+"",
+"4. STAY ACTIVE",
+"   [ ] Post an update or offer to Google weekly",
+"   [ ] Refresh photos monthly",
+"   [ ] Check your map ranking for 'service + city' monthly",
+"",
+"Want us to handle it? Book a free audit at westcliffandco.com",
+"hello@westcliffandco.com"
+    ].join("\n");
+    var blob=new Blob([text],{type:'text/plain'});
+    document.getElementById('checklistDownload').href=URL.createObjectURL(blob);
+  }
+})();
+</script>
+</body>
+</html>
