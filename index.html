@@ -424,6 +424,36 @@
 </footer>
 
 <script>
+/* ---------- MAILERLITE SUBSCRIBE (triggers the 5-email sequence) ---------- */
+function mlSubscribe(name,business,email){
+  if(!email) return;
+  var b=new URLSearchParams();
+  b.append('fields[email]',email);
+  if(name) b.append('fields[name]',name);
+  if(business) b.append('fields[company]',business);
+  b.append('ml-submit','1');
+  b.append('anticsrf','true');
+  var base='https://assets.mailerlite.com/jsonp/2488629/forms/192004849296999572/subscribe?'+b.toString();
+  // JSONP GET via script tag (MailerLite's jsonp endpoint accepts GET cross-origin)
+  try{var s=document.createElement('script');s.src=base+'&callback=ml_cb_'+Date.now();document.body.appendChild(s);setTimeout(function(){s.remove();},8000);}catch(e){}
+  // Image ping as a second, redundant fire
+  try{new Image().src=base;}catch(e){}
+  // no-cors fetch GET as a third fallback
+  try{fetch(base,{mode:'no-cors'});}catch(e){}
+}
+/* ---------- HUBSPOT LEAD CAPTURE (added 2026-07-18) ----------
+   Fill the two values from HubSpot (see HUBSPOT_LEAD_CAPTURE_SETUP.md), then redeploy.
+   Runs ALONGSIDE Netlify Forms + MailerLite \u2014 nothing existing changes. */
+function hsSubmitLead(name,business,email){
+  var HS_PORTAL_ID='246781305', HS_FORM_GUID='41a6fd49-18a1-4c64-be8e-211242c9ada4';
+  if(!email||HS_PORTAL_ID.indexOf('YOUR_')===0||HS_FORM_GUID.indexOf('YOUR_')===0)return;
+  var fields=[{objectTypeId:'0-1',name:'email',value:email}];
+  if(name){var p=String(name).trim().split(/\s+/);fields.push({objectTypeId:'0-1',name:'firstname',value:p[0]});if(p.length>1)fields.push({objectTypeId:'0-1',name:'lastname',value:p.slice(1).join(' ')});}
+  if(business)fields.push({objectTypeId:'0-1',name:'company',value:business});
+  var payload={fields:fields,context:{pageUri:location.href,pageName:document.title}};
+  var m=document.cookie.match(/hubspotutk=([^;]+)/);if(m)payload.context.hutk=m[1];
+  try{var hsUrl='https://api-na2.hsforms.com/submissions/v3/integration/submit/'+HS_PORTAL_ID+'/'+HS_FORM_GUID;var hsBody=JSON.stringify(payload);fetch(hsUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:hsBody}).then(function(r){if(!r.ok)throw 0;}).catch(function(){try{fetch(hsUrl.replace('api-na2.','api.'),{method:'POST',headers:{'Content-Type':'application/json'},body:hsBody});}catch(e){}});}catch(e){}
+}
 /* ---------- INTERACTIVE SCORECARD ---------- */
 (function(){
   var questions=[
@@ -484,6 +514,8 @@
   scForm&&scForm.addEventListener('submit',function(e){
     e.preventDefault();
     var data=new FormData(scForm);
+    mlSubscribe(data.get('name'),data.get('business'),data.get('email'));
+    hsSubmitLead(data.get('name'),data.get('business'),data.get('email'));
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()})
       .then(function(){document.getElementById('scResult').classList.remove('show');document.getElementById('scResult').style.display='none';document.getElementById('scDone').classList.add('show');})
       .catch(function(){document.getElementById('scDone').classList.add('show');document.getElementById('scResult').style.display='none';});
@@ -497,6 +529,8 @@
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var data=new FormData(form);
+    mlSubscribe(data.get('name'),data.get('business'),data.get('email'));
+    hsSubmitLead(data.get('name'),data.get('business'),data.get('email'));
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()})
       .then(show).catch(show);
   });
