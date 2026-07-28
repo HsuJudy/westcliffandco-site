@@ -449,7 +449,7 @@ function hsSubmitLead(name,business,email){
   if(!email||HS_PORTAL_ID.indexOf('YOUR_')===0||HS_FORM_GUID.indexOf('YOUR_')===0)return;
   var fields=[{objectTypeId:'0-1',name:'email',value:email}];
   if(name){var p=String(name).trim().split(/\s+/);fields.push({objectTypeId:'0-1',name:'firstname',value:p[0]});if(p.length>1)fields.push({objectTypeId:'0-1',name:'lastname',value:p.slice(1).join(' ')});}
-  if(business)fields.push({objectTypeId:'0-1',name:'company',value:business});
+  if(business)fields.push({objectTypeId:'0-2',name:'name',value:business});
   var payload={fields:fields,context:{pageUri:location.href,pageName:document.title}};
   var m=document.cookie.match(/hubspotutk=([^;]+)/);if(m)payload.context.hutk=m[1];
   try{var hsUrl='https://api-na2.hsforms.com/submissions/v3/integration/submit/'+HS_PORTAL_ID+'/'+HS_FORM_GUID;var hsBody=JSON.stringify(payload);fetch(hsUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:hsBody}).then(function(r){if(!r.ok)throw 0;}).catch(function(){try{fetch(hsUrl.replace('api-na2.','api.'),{method:'POST',headers:{'Content-Type':'application/json'},body:hsBody});}catch(e){}});}catch(e){}
